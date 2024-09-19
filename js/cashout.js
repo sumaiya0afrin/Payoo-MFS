@@ -1,28 +1,19 @@
 
 document.getElementById('cashout-btn').addEventListener('click', (event)=>{
     event.preventDefault();
-    const currentAmount = document.getElementById('amount');
-    let currAmount = Number(currentAmount.innerText);
-    const agent = document.getElementById('agent-number');
-    const agentNumber = agent.value;
-    const pin = document.getElementById('pin-number');
-    const pinNumber = pin.value;
-
-    const cash = document.getElementById('cashout');
-    const cashout = cash.value;
+    const currentBalance = getTextFieldValueById('amount'); 
+    const pinValue = getInputFieldValueById('pin-number2');
+    const cashout = getInputFieldValueById('cashout');
  
-        if(pinNumber ==='1234' && agentNumber !== " "){
-            const amount = Number(cashout);
-            if(currAmount >= amount){
-                let remaining = currAmount - amount;
-                console.log(remaining);
-                currentAmount.innerText = remaining;
-                pin.value = '';
-                cash.value = '';
+        if(pinValue === 1234){
+            if(currentBalance >= cashout){
+                let remaining = currentBalance - cashout;
+                document.getElementById('amount').innerText = remaining;
+                document.getElementById('cashout').value = '';
+                document.getElementById('pin-number2').value = '';
             }else{
                 alert('Insufficient Balance');
             }
-            
         }
         else{
             alert('Failed to withdraw amount.')
