@@ -302,7 +302,7 @@
                 </label>
                 <input
                   type="text"
-                  id="agent-number"
+                  id="account-number"
                   placeholder="Enter 11 digit number"
                   class="input input-bordered"
                   required
@@ -314,7 +314,7 @@
                 </label>
                 <input
                   type="text"
-                  id="cashout"
+                  id="transfer-amount"
                   placeholder="Enter Amount to transfer"
                   class="input input-bordered"
                   required
@@ -326,7 +326,7 @@
                 </label>
                 <input
                   type="password"
-                  id="pin-number2"
+                  id="pin-number3"
                   placeholder="Enter 4 Digit Pin"
                   class="input input-bordered"
                   autocomplete="off"
@@ -335,7 +335,7 @@
               </div>
               <div class="form-control mt-2">
                 <button
-                  id="cashout-btn"
+                  id="transfer-btn"
                   class="btn btn-primary rounded-3xl text-white"
                 >
                   Send Now
@@ -367,9 +367,12 @@
                   required
                 />
               </div>
+              <div>
+                <p class="text-red-500 text-sm">Coupon Code: payoo123</p>
+              </div>
               <div class="form-control mt-2">
                 <button
-                  id="cashout-btn"
+                  id="bonus-btn"
                   class="btn btn-primary rounded-3xl text-white"
                 >
                   Get Bonus
@@ -390,15 +393,19 @@
                 <label class="label">
                   <span class="label-text font-medium">Select To Pay</span>
                 </label>
-                <select class="select select-bordered w-full" required>
-                  <option disabled selected>Select bank</option>
-                  <option>Islami Bank</option>
-                  <option>Jamuna Bank</option>
-                  <option>IFIC Bank</option>
-                  <option>Janata Bank</option>
-                  <option>Agrani Bank</option>
-                  <option>BRAC Bank</option>
-                  <option>City Bank</option>
+                <select
+                  id="bank-select"
+                  class="select select-bordered w-full"
+                  required
+                >
+                  <option value=" ">Select bank</option>
+                  <option value="bank-1">Islami Bank</option>
+                  <option value="bank-2">Jamuna Bank</option>
+                  <option value="bank-3">IFIC Bank</option>
+                  <option value="bank-4">Janata Bank</option>
+                  <option value="bank-5">Agrani Bank</option>
+                  <option value="bank-6">BRAC Bank</option>
+                  <option value="bank-7">City Bank</option>
                 </select>
               </div>
               <div class="form-control">
@@ -409,7 +416,7 @@
                 </label>
                 <input
                   type="text"
-                  id="bank-number"
+                  id="biller-number"
                   placeholder="Enter account number"
                   class="input input-bordered"
                   required
@@ -421,7 +428,7 @@
                 </label>
                 <input
                   type="text"
-                  id="add-amount"
+                  id="pay-amount"
                   placeholder="Add Amount to pay"
                   class="input input-bordered"
                   required
@@ -433,7 +440,7 @@
                 </label>
                 <input
                   type="password"
-                  id="pin-number"
+                  id="pin-number4"
                   placeholder="Enter 4 Digit Pin"
                   class="input input-bordered"
                   autocomplete="off"
@@ -442,7 +449,7 @@
               </div>
               <div class="form-control mt-2">
                 <button
-                  id="addmoney-btn"
+                  id="pay-btn"
                   class="btn btn-primary rounded-3xl text-white"
                 >
                   Pay Now
@@ -457,66 +464,7 @@
         <div class="my-6 hidden" id="transaction-history">
           <h2 class="font-bold text-lg">Transaction History</h2>
 
-          <div class="space-y-3 my-4">
-            <!-- card -1  -->
-            <div class="card flex-row lg:card-side bg-base-100 border">
-              <figure class="pl-6">
-                <img
-                  class="bg-gray-200 p-5 rounded-full"
-                  src="images/add.png"
-                  alt="Album"
-                />
-              </figure>
-              <div class="card-body p-5">
-                <h2 class="card-title">Electricity Bill</h2>
-                <p>Today 01:44 AM.</p>
-              </div>
-            </div>
-            <!-- card -2  -->
-            <div class="card flex-row lg:card-side bg-base-100 border">
-              <figure class="pl-6">
-                <img
-                  class="bg-gray-200 p-5 rounded-full"
-                  src="images/add.png"
-                  alt="Album"
-                />
-              </figure>
-              <div class="card-body p-5">
-                <h2 class="card-title">Bank Deposit</h2>
-                <p>Today 01:44 AM.</p>
-              </div>
-            </div>
-
-            <!-- card -3  -->
-            <div class="card flex-row lg:card-side bg-base-100 border">
-              <figure class="pl-6">
-                <img
-                  class="bg-gray-200 p-5 rounded-full"
-                  src="images/add.png"
-                  alt="Album"
-                />
-              </figure>
-              <div class="card-body p-5">
-                <h2 class="card-title">Mobile Recharge</h2>
-                <p>Today 01:44 AM.</p>
-              </div>
-            </div>
-
-            <!-- card -4  -->
-            <div class="card flex-row lg:card-side bg-base-100 border">
-              <figure class="pl-6">
-                <img
-                  class="bg-gray-200 p-5 rounded-full"
-                  src="images/add.png"
-                  alt="Album"
-                />
-              </figure>
-              <div class="card-body p-5">
-                <h2 class="card-title">Gas Bill</h2>
-                <p>Today 01:44 AM.</p>
-              </div>
-            </div>
-          </div>
+          <div class="space-y-3 my-4" id="transaction-list"></div>
         </div>
         <!-- transaction-history ends -->
       </div>
@@ -525,5 +473,8 @@
     <script src="js/utilities.js"></script>
     <script src="js/features.js"></script>
     <script src="js/cashout.js"></script>
+    <script src="js/bonus.js"></script>
+    <script src="js/transfer.js"></script>
+    <script src="js/paybill.js"></script>
   </body>
 </html>

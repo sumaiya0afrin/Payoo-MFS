@@ -4,6 +4,11 @@ document.getElementById('cashout-btn').addEventListener('click', (event)=>{
     const currentBalance = getTextFieldValueById('amount'); 
     const pinValue = getInputFieldValueById('pin-number2');
     const cashout = getInputFieldValueById('cashout');
+
+    if(isNaN(cashout)){
+        alert('Failed to withdraw.');
+        return;
+    }
  
         if(pinValue === 1234){
             if(currentBalance >= cashout){
@@ -11,6 +16,8 @@ document.getElementById('cashout-btn').addEventListener('click', (event)=>{
                 document.getElementById('amount').innerText = remaining;
                 document.getElementById('cashout').value = '';
                 document.getElementById('pin-number2').value = '';
+
+                addTransaction('Withdraw Money: ', cashout ,'./images/send.png');
             }else{
                 alert('Insufficient Balance');
             }
