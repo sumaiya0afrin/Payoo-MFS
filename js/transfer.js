@@ -27,7 +27,7 @@ document.getElementById('transfer-btn').addEventListener('click', (event)=>{
         }
     }
     else{
-        alert('Invalid User Account Number');
+        alert('Invalid Input');
     }
 
     
